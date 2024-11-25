@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        jobOffer::factory(1)->create();
+        jobOffer::factory(20)->create();
        // jobVacancyStatus::factory(1)->create();
     }
 }

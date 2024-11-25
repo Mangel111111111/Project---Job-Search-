@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class jobOffer extends Model
 {
     use HasFactory;
+    protected $table = 'job_vacancies';
 
     protected $fillable = [
         'jobOffer',
