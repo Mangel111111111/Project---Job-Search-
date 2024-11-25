@@ -46,14 +46,19 @@ In the "php artisan serve" prompt, there's a link to the page.
   - we create a database which we name as ‘JobSearchApp’.
 
 ### :open_file_folder: Page Display
-open a new git bash prompt and type the following commands:
+open a new git bash prompt and type the following command:
 ```php
 $ php artisan key:generate
 ```
+Change the following section in .env file:
+- DB_CONNECTION=mysql
+- DB_DATABASE=insideOutApp
+
+Open a git bash prompt and type the following command:
 ```php
 $ php artisan migrate:fresh
 ```
-.........Change this section in .env file: DB_CONNECTION=mysql DB_DATABASE=insideOutApp.....Mirar si lo necesito...
+with all this done you should now be able to view the website.
 
 ## :white_check_mark: Testing
 To launch the tests we use the following command:
