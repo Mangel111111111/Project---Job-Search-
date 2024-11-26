@@ -5,8 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\jobOffer;
-use App\Models\jobVacancyStatus;
+use App\Models\Vacancy;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        jobOffer::factory(20)->create();
-       // jobVacancyStatus::factory(1)->create();
+        Vacancy::factory(7)->create();
     }
 }
