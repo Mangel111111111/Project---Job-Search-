@@ -59,7 +59,15 @@ class VacancyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $vacancy = Vacancy::find($id);
+
+        $vacancy = Vacancy::create([
+            'jobOffer' => $request->jobOffer,
+            'jobVacancyStatus' => $request->jobVacancyStatus
+        ]);
+        $vacancy->save();
+        return response()->json($vacancy, 200);
+
     }
 
     /**
