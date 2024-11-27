@@ -30,7 +30,12 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vacancy = Vacancy::create([
+            'jobOffer' => $request->jobOffer,
+            'jobVacancyStatus' => $request->jobVacancyStatus
+        ]);
+        $vacancy->save();
+        return response()->json($vacancy, 200);
     }
 
     /**

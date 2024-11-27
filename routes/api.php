@@ -6,3 +6,4 @@ use App\Http\Controllers\Api\VacancyController;
 
 Route::get('/vacancies', [VacancyController::class,'index'])->name('apiindex');
 Route::delete('/vacancies/{id}',[VacancyController::class,'destroy'])->name('apidestroy');
+Route::post('/vacancies',[VacancyController::class,'store'])->name('apistore');

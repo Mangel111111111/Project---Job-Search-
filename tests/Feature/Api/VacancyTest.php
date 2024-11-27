@@ -30,5 +30,13 @@ class VacancyTest extends TestCase
         $response = $this->get(route('apiindex'));
         $response->assertJsonCount(1);
     }
-    
+    public function test_CheckIfCanCreateEntryInVacancyWithJson(){
+        $response = $this->post(route('apistore'), [
+            'jobOffer' => 'Intern',
+            'jobVacancyStatus' => 'Close'
+        ]);
+        $response = $this->get(route('apiindex'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1);
+    }
 }
