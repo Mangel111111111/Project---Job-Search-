@@ -14,7 +14,7 @@ class VacancyController extends Controller
     public function index()
     {
         $vacancies = Vacancy::all();
-        return response()->json($vacancies, 200);
+        return response()->json(compact('vacancies'), 200);
     }
 
     /**
