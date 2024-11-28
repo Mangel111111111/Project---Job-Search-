@@ -2,17 +2,24 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Vacancy;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VacancyTest extends TestCase
 {
     use RefreshDatabase;
     
-    public function test_example(): void
+    public function test_viewIndex() 
     {
         $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+    public function test_viewShow()
+    {
+        $response = $this->get(route('show', 'id'));
 
         $response->assertStatus(200);
     }
