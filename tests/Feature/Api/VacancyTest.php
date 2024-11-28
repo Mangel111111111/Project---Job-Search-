@@ -39,4 +39,25 @@ class VacancyTest extends TestCase
         $response->assertStatus(200)
                 ->assertJsonCount(1);
     }
+    public function test_CheckIfCanUpdateEntryInVacancyWithJsonFile(){
+        $response = $this->post(route('apistore'), [
+            'jobOffer' => 'Intern',
+            'jobVacancyStatus' => 'Close'
+        ]);
+        $data = ['jobOffer' => 'Intern'];
+        $response = $this->get(route('apiindex'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1)
+                ->assertJsonFragment($data);
+
+        $response = $this->put('/api/vacancies/1', [
+            'jobOffer' => 'unemployed',
+            'jobVacancyStatus' => 'Open'
+        ]);
+        $data = ['jobOffer' => 'unemployed'];
+        $response = $this->get(route('apiindex'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1)
+                ->assertJsonFragment($data);
+    }
 }

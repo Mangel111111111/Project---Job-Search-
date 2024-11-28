@@ -61,7 +61,7 @@ class VacancyController extends Controller
     {
         $vacancy = Vacancy::find($id);
 
-        $vacancy = Vacancy::create([
+        $vacancy->update([
             'jobOffer' => $request->jobOffer,
             'jobVacancyStatus' => $request->jobVacancyStatus
         ]);
