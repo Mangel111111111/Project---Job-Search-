@@ -60,4 +60,13 @@ class VacancyTest extends TestCase
                 ->assertJsonCount(1)
                 ->assertJsonFragment($data);
     }
+    public function test_CheckIfReceiveOnlyOneEntryOfVacancyInJsonFile(){
+        $vacancy = Vacancy::factory()->create();
+        $response = $this->get(route('apishow', ['id' => $vacancy->id]));
+        $response->assertStatus(200);
+        $response->assertJson([
+            'id' => $vacancy->id,
+        ]);
+    }
 }
+
