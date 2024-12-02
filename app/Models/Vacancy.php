@@ -13,4 +13,8 @@ class Vacancy extends Model
         'jobOffer',
         'jobVacancyStatus'
     ];
+
+    public function follows(){
+        return $this->hasMany(Follow::class);
+    }
 }
