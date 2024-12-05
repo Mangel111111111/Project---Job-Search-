@@ -55,11 +55,11 @@ class FollowController extends Controller
         //
     }
 
-    /**
+    /* *
      * Remove the specified resource from storage.
      */
-    public function destroy(Follow $follow)
+    /* public function destroy(Follow $follow)
     {
         //
-    }
+    } */
 }

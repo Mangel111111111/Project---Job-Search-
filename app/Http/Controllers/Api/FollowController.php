@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\Vacancy;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FollowController extends Controller
 {
@@ -26,10 +27,35 @@ class FollowController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+        public function store(Request $request, $vacancyId)
     {
-        //
+        $validated = $request->validate([
+            'news' => 'required|array',
+        ]);
+
+        $vacancy = Vacancy::find($vacancyId);
+
+        if (!$vacancy) {
+            return response()->json([
+                'message' => 'The work for which follow-up is claimed does not exist'
+            ], 404);
+        }
+
+        $followsData = collect($validated['news'])->map(function ($newsItem) use ($vacancy) {
+            return [
+                'work_id' => $vacancy->id,
+                'news' => $newsItem,
+            ];
+        });
+
+        $vacancy->follows()->createMany($followsData);
+
+        return response()->json([
+            'message' => 'New items added correctly',
+            'vacancy' => $vacancy->load('follows'),
+        ]);
     }
+
 
     /**
      * Display the specified resource.

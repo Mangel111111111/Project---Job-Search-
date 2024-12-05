@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->foreingID('works_id')->constrained('vacancies')->onDelete('cascade');
+            $table->foreingID('work_id')->constrained('vacancies')->onDelete('cascade');
             $table->text('news');
             $table->timestamps();
         });
