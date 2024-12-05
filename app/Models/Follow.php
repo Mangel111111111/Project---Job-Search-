@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Follow extends Model
 {
     protected $fillable =[
-        'works_id',
+        'vacancy_id',
         'news',
     ];
     public function vacancy(){
