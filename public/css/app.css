@@ -1,2 +1,6 @@
 @import url(header.css);
 @import url(footer.css);
+
+main{
+    background-color:#1E1E1E ;
+}
