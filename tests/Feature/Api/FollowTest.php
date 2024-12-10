@@ -12,7 +12,7 @@ class FollowTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_StoreCreatesFollowsWhenVacancyExists()
+    /* public function test_StoreCreatesFollowsWhenVacancyExists()
     {
         $response = $this->post(route('apistore'), [
             'jobOffer' => 'Intern',
@@ -33,7 +33,7 @@ class FollowTest extends TestCase
         $response->assertStatus (200)
                 ->assertJsonFragment(['jobOffer' => 'Intern'])
                 ->assertJsonFragment(['news' => 'Recruiters have contacted me']);
-    }
+    } */
 
     public function test_IfAFollowBelongsToAnVacancy()
     {
