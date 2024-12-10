@@ -2,9 +2,11 @@
 
 namespace Tests\Feature\Api;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Follow;
+use App\Models\Vacancy;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FollowTest extends TestCase
 {
@@ -22,7 +24,7 @@ class FollowTest extends TestCase
                 ->assertJsonCount(1)
                 ->assertJsonFragment($data);
 
-        $response = $this->post('/vacancies/1/follows', [
+        $response = $this->postJson(route('followstore', 1),[
             'news' => 'Recruiters have contacted me',
             'vacancy_id' => 1, 
         ]);
@@ -32,32 +34,14 @@ class FollowTest extends TestCase
                 ->assertJsonFragment(['jobOffer' => 'Intern'])
                 ->assertJsonFragment(['news' => 'Recruiters have contacted me']);
     }
-     /* public function test_StoreeeCreatesFollowsWhenVacancyExists()
+
+    public function test_IfAFollowBelongsToAnVacancy()
     {
-        // Crear una vacante
-        $response = $this->post(route('apistore'), [
-            'jobOffer' => 'Intern',
-            'jobVacancyStatus' => 'Close'
-        ]);
+        $vacancy = Vacancy::factory()->create();
 
-        // Asegúrate de que la vacante fue creada correctamente
-        $vacancy = json_decode($response->getContent(), true);
-        $vacancyId = $vacancy['id'];  // Obtener el ID de la vacante recién creada
+        $follow = Follow::factory()->create(['vacancy_id' => $vacancy->id]);
 
-        // Verificar que la vacante se ha creado correctamente
-        $response = $this->get(route('apiindex'));
-        $response->assertStatus(200)
-                ->assertJsonFragment(['jobOffer' => 'Intern']);
-
-        // Crear un follow para la vacante
-        $response = $this->postJson("/vacancies/{$vacancyId}/follows", [
-            'news' => 'Recruiters have contacted me',
-        ]);
-
-        // Verificar que el código de estado sea 201 (creado)
-        $response->assertStatus(201)
-                ->assertJsonFragment(['news' => 'Recruiters have contacted me']);
-    } */
-
+        $this->assertEquals($vacancy->id, $follow->vacancy->id);
+    }
 
 }
