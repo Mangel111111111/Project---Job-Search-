@@ -3,6 +3,8 @@
 Develop a web application using Laravel to help users efficiently manage and track their job applications. The application will allow users to register, organise and monitor the status of job opportunities they have applied for, optimising the job search process and providing detailed control over interactions with companies.
 
 ## :camera: Screenshots
+![Diagram](https://res.cloudinary.com/del1j3jge/image/upload/v1733856650/sqagkqsd5t4lsymozme5.png)
+![Diagram](https://res.cloudinary.com/del1j3jge/image/upload/v1733856650/fikky5rxwpfpz1vyjfsg.png)
 
 ## :cyclone: Pre-Requirements
 
@@ -93,7 +95,7 @@ Additionally, if you have Xdebug installed, you can see the test coverage.
 ```php
 $ php artisan test --coverage
 ```
-![Test]()
+![Test](https://res.cloudinary.com/del1j3jge/image/upload/v1733856650/lalpvvxr1b2stpy8q4hc.png)
 
 ## Database Diagram
 ![Diagram](https://res.cloudinary.com/del1j3jge/image/upload/v1733824167/jcvo4elntk5i86hw6ogp.png)
