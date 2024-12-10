@@ -43,5 +43,35 @@ class FollowTest extends TestCase
 
         $this->assertEquals($vacancy->id, $follow->vacancy->id);
     }
+    /* public function test_IfCanCreateFollowsForAnEmployment()
+    {
+        $vacancy = Vacancy::factory()->create();
+
+        $follows = ['Primera novedad', 'Segunda novedad'];
+
+        $response = $this->postJson(route('followstore', ['vacancy_id' => $vacancy->id]), [
+            'news' => $follows,
+        ]);
+
+        $response->assertStatus(200)
+                 ->assertJson([
+                     'message' => 'Novedades añadidas correctamente',
+                     'vacancy' => [
+                         'id' => $vacancy->id,
+                         'follows' => [
+                             ['news' => 'Primera novedad'],
+                             ['news' => 'Segunda novedad'],
+                         ],
+                     ],
+                 ]);
+
+        $this->assertDatabaseCount('follows', 2);
+        foreach ($follows as $follow) {
+            $this->assertDatabaseHas('follows', [
+                'vacancy_id' => $vacancy->id,
+                'news' => $follow,
+            ]);
+        }
+    } */
 
 }
