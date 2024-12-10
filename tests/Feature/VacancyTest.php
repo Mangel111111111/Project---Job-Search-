@@ -19,8 +19,11 @@ class VacancyTest extends TestCase
     }
     public function test_viewShow()
     {
-        $response = $this->get(route('show', 'id'));
+        $vacancy = Vacancy::factory()->create();
+
+        $response = $this->get(route('show', $vacancy->id));
 
         $response->assertStatus(200);
     }
+
 }

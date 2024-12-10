@@ -1,15 +1,27 @@
-footer{
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+footer {
     background-color: #2C2F33;
-    color:#A3A5A8 ;
+    color: #A3A5A8;
     text-align: center;
     padding: 20px 0;
     flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
 }
+
 table {
     width: 50%;
     margin: 0 auto;
     border-collapse: collapse;
 }
+
 th, td {
     padding: 10px;
     text-align: center;
@@ -19,7 +31,24 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
 img {
     width: 80px;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    .social-icon {
+        width: 60px;
+        height: auto;
+    }
+
+    footer table {
+        width: 100%;
+    }
+
+    footer td {
+        display: inline-block;
+        margin-right: 10px;
+    }
 }
