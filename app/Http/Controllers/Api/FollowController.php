@@ -43,7 +43,7 @@ class FollowController extends Controller
 
         $followsData = collect($validated['news'])->map(function ($newsItem) use ($vacancy) {
             return [
-                'work_id' => $vacancy->id,
+                'vacancy_id' => $vacancy->id,
                 'news' => $newsItem,
             ];
         });

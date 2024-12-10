@@ -11,4 +11,4 @@ Route::post('/vacancies',[VacancyController::class,'store'])->name('apistore');
 Route::put('/vacancies/{id}',[VacancyController::class,'update'])->name('apiupdate');
 Route::get('/vacancies/{id}', [VacancyController::class, 'show'])->name('apishow');
 
-Route::post('/vacancies/{vacancyId}/follows',[FollowController::class,'store']);
+Route::post('/vacancies/{vacancyId}/follows',[FollowController::class,'store'])->name('followstore');
