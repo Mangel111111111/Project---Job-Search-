@@ -1,0 +1,25 @@
+footer{
+    background-color: #202225;
+    color:#A3A5A8 ;
+    text-align: center;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+img {
+    width: 80px;
+    height: auto;
+}
