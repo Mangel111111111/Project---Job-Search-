@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Vacancy::factory(7)->create();
+        Vacancy::factory(7)->create([
+            "jobVacancyStatus" => "Active"
+        ]);
     }
 }
